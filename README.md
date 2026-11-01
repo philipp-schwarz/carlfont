@@ -5,7 +5,9 @@ I created this font for one of my projects and am sharing it in the hope that it
 
 ![chars](misc/documentation/chars.png)
 
-Example showing an 8-pixel character height in Regular.
+(Example showing an 8-pixel character height in regular style)
+
+The font is primary made for games but also works for the web. Check out the [HTML Demo](https://philipp-schwarz.github.io/dist/carlfont/demo.html).
 
 ## Styles and sizes
 
@@ -35,7 +37,7 @@ Import the PNG or JavaScript files. Both work out of the box.
 
 ![styles](misc/documentation/styles.png)
 
-You can also open [`overview.html`](overview.html) or [`viewer.html`](viewer.html) in a browser to see the fonts in action.
+You can also open [`demo.html`](demo.html) in a browser to see the fonts in action.
 
 ## Character set
 
