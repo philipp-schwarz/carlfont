@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Font Preview</title>
+	</head>
+	<body>
+		<script src="Draw16.min.js"></script>
+		<script src="../font/js/carl5.js"></script>
+		<script src="../font/js/carl6.js"></script>
+		<script src="../font/js/carl8.js"></script>
+		<script src="../font/js/carl5bold.js"></script>
+		<script src="../font/js/carl6bold.js"></script>
+		<script src="../font/js/carl8bold.js"></script>
+		<script>
+
+Draw16.init(512, 384);
+Draw16.installFullscreen();
+
+var i = 0;
+
+var fontList = [
+		['Carl5', 'carl5'],
+		['Carl5 Bold', 'carl5bold'],
+		['Carl6', 'carl6'],
+		['Carl6 Bold', 'carl6bold'],
+		['Carl8', 'carl8'],
+		['Carl8 Bold', 'carl8bold']
+];
+var fontIndex = 0;
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowDown') {
+        fontIndex++;
+    }
+    if (event.key === 'ArrowUp') {
+        fontIndex--;
+    }
+	if (fontIndex >= fontList.length)
+		fontIndex = 0;
+	if (fontIndex < 0)
+		fontIndex = fontList.length - 1;
+});
+
+Draw16.onStep = function() {
+
+	// Clear the screen
+	Draw16.drawRectangleFill(0xffffff, 0, 0, 512, 384);
+
+	// Just show some movement
+	Draw16.drawPixel(0x000000, i%256, 0);
+	i++;
+
+	var font = Draw16.font[fontList[fontIndex][1]];
+	var color = 0x444444;
+	var color2 = 0xBBBBBB;
+
+	// Regular font
+	var p = 1;
+
+	for (var i=0; i<fontList.length; i++) {
+		var fontLabel = fontList[i][0];
+		var fontName = fontList[i][1];
+		var curFont = (i==fontIndex ? Draw16.font.carl8bold : Draw16.font.carl8);
+		Draw16.drawTextUnicode(curFont, color, fontLabel, 416, 288+i*10);
+	}
+
+	Draw16.drawTextUnicode(font, color, 'Font: '+fontList[fontIndex][0], 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color2, 'Use arrow keys to change the font', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, '', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, 'Pixel wizards quickly jump from a brave fox to the old dungeon.', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, 'Für zwölf Münzen öffnet der müde Zwerg das größte Schatzkästchen.', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color2, 'ä ö ü Ä Ö Ü ß', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, 'Noël, héros, élixir et pièces: le jeu rétro préféré du garçon.', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color2, 'é è à ù â ê î ô û ë ï ü ç œ æ É È À Ù Â Ê Î Ô Û Ë Ï Ü Ç Œ Æ', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, 'El héroe ganó píxeles mágicos y monedas.', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color2, 'á é í ó ú ü ñ Á É Í Ó Ú Ü Ñ ¿ ¡', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, 'João vê dragões, poções mágicas e baús.', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color2, 'á à â ã é ê í ó ô õ ú ü ç Á À Â Ã É Ê Í Ó Ô Õ Ú Ü Ç', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, '', 16, (p++)*16);
+
+	Draw16.drawTextUnicode(font, color, '12.345.678,90$   50%   peter.miller@example.com', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, '15 + 6 = 21', 16, (p++)*16);
+	Draw16.drawTextUnicode(font, color, '', 16, (p++)*16);
+
+	Draw16.drawTextUnicode(font, color, '!"#$%&\'()*+,-./0123456789:;<=>?@', 16, (p++)*16, -10);
+	Draw16.drawTextUnicode(font, color, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`', 16, (p++)*16, -10);
+	Draw16.drawTextUnicode(font, color, 'abcdefghijklmnopqrstuvwxyz{|}~', 16, (p++)*16, -10);
+	Draw16.drawTextUnicode(font, color, '¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿', 16, (p++)*16, -10);
+	Draw16.drawTextUnicode(font, color, 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞß', 16, (p++)*16, -10);
+	Draw16.drawTextUnicode(font, color, 'àáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ', 16, (p++)*16, -10);
+
+}
+
+		</script>
+	</body>
+</html>

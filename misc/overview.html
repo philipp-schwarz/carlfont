@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Font Overview</title>
+	</head>
+	<body>
+		<script src="Draw16.min.js"></script>
+		<script src="../font/js/carl5.js"></script>
+		<script src="../font/js/carl6.js"></script>
+		<script src="../font/js/carl8.js"></script>
+		<script src="../font/js/carl5bold.js"></script>
+		<script src="../font/js/carl6bold.js"></script>
+		<script src="../font/js/carl8bold.js"></script>
+		<script>
+
+Draw16.init(256, 16*33);
+Draw16.installFullscreen();
+
+var i = 0;
+
+Draw16.onStep = function() {
+
+	// Clear the screen
+	Draw16.drawRectangleFill(0xffffff, 0, 0, 256, 16*33);
+
+	// Just show some movement
+	Draw16.drawPixel(0xffffff, i%256, 0);
+	i++;
+
+	var color = 0x444444;
+	var color2 = 0xBBBBBB;
+
+	var p = 1;
+	var lineHeight = 14;
+
+	//Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '8 Bold: Quirky pixel wizard Jack', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, 'bravely fights the mighty dragon.', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color2, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color2, 'abcdefghijklmnopqrstuvwxyz', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color2, '0123456789', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl6bold, color, '6 Bold: Quirky pixel wizard Jack', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl6bold, color, 'bravely fights the mighty dragon.', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl6bold, color2, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl6bold, color2, 'abcdefghijklmnopqrstuvwxyz', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl6bold, color2, '0123456789', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl5bold, color, '5 Bold: Quirky pixel wizard Jack', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl5bold, color, 'bravely fights the mighty dragon.', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl5bold, color2, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl5bold, color2, 'abcdefghijklmnopqrstuvwxyz', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl5bold, color2, '0123456789', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl8, color, '8 Regular: Quirky pixel wizard Jack', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl8, color, 'bravely fights the mighty dragon.', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl8, color2, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8, color2, 'abcdefghijklmnopqrstuvwxyz', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8, color2, '0123456789', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl6, color, '6 Regular: Quirky pixel wizard Jack', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl6, color, 'bravely fights the mighty dragon.', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl6, color2, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl6, color2, 'abcdefghijklmnopqrstuvwxyz', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl6, color2, '0123456789', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl5, color, '5 Regular: Quirky pixel wizard Jack', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl5, color, 'bravely fights the mighty dragon.', 16, (p++)*lineHeight, 1);
+	Draw16.drawTextUnicode(Draw16.font.carl5, color2, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl5, color2, 'abcdefghijklmnopqrstuvwxyz', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl5, color2, '0123456789', 16, (p++)*lineHeight, -8);
+	Draw16.drawTextUnicode(Draw16.font.carl8bold, color, '', 16, (p++)*lineHeight, 1);
+
+}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Carl Font TTF Preview</title>
+	<style>
+		@font-face {
+			font-family: "Carl 5 Regular";
+			src: url("font/ttf/carl5-regular.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 5 Bold";
+			src: url("font/ttf/carl5-bold.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 5 Pad Regular";
+			src: url("font/ttf/carl5-pad-regular.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 5 Pad Bold";
+			src: url("font/ttf/carl5-pad-bold.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 6 Regular";
+			src: url("font/ttf/carl6-regular.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 6 Bold";
+			src: url("font/ttf/carl6-bold.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 6 Pad Regular";
+			src: url("font/ttf/carl6-pad-regular.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 6 Pad Bold";
+			src: url("font/ttf/carl6-pad-bold.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 8 Regular";
+			src: url("font/ttf/carl8-regular.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 8 Bold";
+			src: url("font/ttf/carl8-bold.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 8 Pad Regular";
+			src: url("font/ttf/carl8-pad-regular.ttf") format("truetype");
+			font-display: swap;
+		}
+		@font-face {
+			font-family: "Carl 8 Pad Bold";
+			src: url("font/ttf/carl8-pad-bold.ttf") format("truetype");
+			font-display: swap;
+		}
+
+		:root {
+			color-scheme: light dark;
+			font-family: system-ui, sans-serif;
+			background: #17191c;
+			color: #f3f3f3;
+		}
+		body {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 2rem 1rem 4rem;
+		}
+		h1, h2, h3 { line-height: 1.2; }
+		.intro { color: #bfc4ca; }
+		.size-group {
+			margin-top: 2.5rem;
+			padding-top: 1rem;
+			border-top: 1px solid #42464d;
+		}
+		.specimen {
+			margin: 1rem 0;
+			padding: 1rem;
+			background: #24272c;
+			border-radius: 0.5rem;
+			overflow-wrap: anywhere;
+		}
+		.specimen h3 {
+			margin: 0 0 0.75rem;
+			font: 600 0.9rem/1.3 system-ui, sans-serif;
+			color: #bfc4ca;
+		}
+		.sample {
+			margin: 0;
+			/* At 32px, each 1/16-em bitmap pixel maps to exactly 2 CSS pixels. */
+			font-size: 32px;
+			line-height: 1.5;
+			-webkit-font-smoothing: none;
+			filter: url(#pixel-edges);
+		}
+		.carl-5-regular { font-family: "Carl 5 Regular", monospace; }
+		.carl-5-bold { font-family: "Carl 5 Bold", monospace; }
+		.carl-5-pad-regular { font-family: "Carl 5 Pad Regular", monospace; }
+		.carl-5-pad-bold { font-family: "Carl 5 Pad Bold", monospace; }
+		.carl-6-regular { font-family: "Carl 6 Regular", monospace; }
+		.carl-6-bold { font-family: "Carl 6 Bold", monospace; }
+		.carl-6-pad-regular { font-family: "Carl 6 Pad Regular", monospace; }
+		.carl-6-pad-bold { font-family: "Carl 6 Pad Bold", monospace; }
+		.carl-8-regular { font-family: "Carl 8 Regular", monospace; }
+		.carl-8-bold { font-family: "Carl 8 Bold", monospace; }
+		.carl-8-pad-regular { font-family: "Carl 8 Pad Regular", monospace; }
+		.carl-8-pad-bold { font-family: "Carl 8 Pad Bold", monospace; }
+		.text-demo {
+			margin-top: 3rem;
+			padding-top: 1rem;
+			border-top: 1px solid #42464d;
+		}
+		.controls {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+			gap: 1rem;
+			margin: 1rem 0;
+		}
+		.controls label {
+			display: grid;
+			gap: 0.4rem;
+			font-weight: 600;
+		}
+		select {
+			width: 100%;
+			padding: 0.65rem;
+			font: inherit;
+			color: inherit;
+			background: #24272c;
+			border: 1px solid #626872;
+			border-radius: 0.35rem;
+		}
+		.story {
+			white-space: pre-line;
+			padding: 1rem;
+			background: #24272c;
+			border-radius: 0.5rem;
+			overflow-wrap: anywhere;
+		}
+		.sample.carl-8-regular,
+		.sample.carl-8-bold,
+		.sample.carl-8-pad-regular,
+		.sample.carl-8-pad-bold { line-height: 28px; }
+		.sample.carl-6-regular,
+		.sample.carl-6-bold,
+		.sample.carl-6-pad-regular,
+		.sample.carl-6-pad-bold { line-height: 24px; }
+		.sample.carl-5-regular,
+		.sample.carl-5-bold,
+		.sample.carl-5-pad-regular,
+		.sample.carl-5-pad-bold { line-height: 22px; }
+	</style>
+</head>
+<body>
+	<svg aria-hidden="true" width="0" height="0" style="position:absolute">
+		<filter id="pixel-edges" color-interpolation-filters="sRGB">
+			<feComponentTransfer>
+				<feFuncA type="discrete" tableValues="0 0 1 1"></feFuncA>
+			</feComponentTransfer>
+		</filter>
+	</svg>
+	<h1>Carl Font TTF Preview</h1>
+	<p class="intro">A comparison of all available TTF sizes and styles. Each sample is rendered at a larger CSS size for readability.</p>
+
+	<main>
+		<section class="size-group" aria-labelledby="size-8">
+			<h2 id="size-8">8 px</h2>
+			<div class="specimen"><h3>Bold</h3><p class="sample carl-8-bold">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Regular</h3><p class="sample carl-8-regular">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Pad Bold</h3><p class="sample carl-8-pad-bold">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Pad Regular</h3><p class="sample carl-8-pad-regular">The quick brown fox jumps over the lazy dog.</p></div>
+		</section>
+
+		<section class="size-group" aria-labelledby="size-6">
+			<h2 id="size-6">6 px</h2>
+			<div class="specimen"><h3>Bold</h3><p class="sample carl-6-bold">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Regular</h3><p class="sample carl-6-regular">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Pad Bold</h3><p class="sample carl-6-pad-bold">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Pad Regular</h3><p class="sample carl-6-pad-regular">The quick brown fox jumps over the lazy dog.</p></div>
+		</section>
+
+		<section class="size-group" aria-labelledby="size-5">
+			<h2 id="size-5">5 px</h2>
+			<div class="specimen"><h3>Bold</h3><p class="sample carl-5-bold">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Regular</h3><p class="sample carl-5-regular">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Pad Bold</h3><p class="sample carl-5-pad-bold">The quick brown fox jumps over the lazy dog.</p></div>
+			<div class="specimen"><h3>Pad Regular</h3><p class="sample carl-5-pad-regular">The quick brown fox jumps over the lazy dog.</p></div>
+		</section>
+
+		<section class="text-demo" aria-labelledby="text-demo-heading">
+			<h2 id="text-demo-heading">Text example</h2>
+			<div class="controls">
+				<label for="language-select">Language
+					<select id="language-select">
+						<option value="de" selected>German</option>
+						<option value="en">English</option>
+						<option value="fr">French</option>
+						<option value="es">Spanish</option>
+						<option value="pt">Portuguese</option>
+						<option value="sv">Swedish</option>
+						<option value="da">Danish</option>
+					</select>
+				</label>
+				<label for="font-select">Font size and style
+					<select id="font-select">
+						<option value="carl-8-bold" selected>8 px Bold</option>
+						<option value="carl-8-regular">8 px Regular</option>
+						<option value="carl-8-pad-bold">8 px Pad Bold</option>
+						<option value="carl-8-pad-regular">8 px Pad Regular</option>
+						<option value="carl-6-bold">6 px Bold</option>
+						<option value="carl-6-regular">6 px Regular</option>
+						<option value="carl-6-pad-bold">6 px Pad Bold</option>
+						<option value="carl-6-pad-regular">6 px Pad Regular</option>
+						<option value="carl-5-bold">5 px Bold</option>
+						<option value="carl-5-regular">5 px Regular</option>
+						<option value="carl-5-pad-bold">5 px Pad Bold</option>
+						<option value="carl-5-pad-regular">5 px Pad Regular</option>
+					</select>
+				</label>
+			</div>
+			<p id="story" class="sample story carl-8-bold" lang="de"></p>
+		</section>
+	</main>
+	<script>
+		const stories = {
+			de: `Der Drache brüllte ohrenbetäubend und spie eine gewaltige Feuerwolke über den Burghof. Der tapfere Junge duckte sich, sprang über die zerbrochenen Ziegel und rannte mit erhobenem Schwert auf das Ungeheuer zu.\n\nMit einem kräftigen Schwerthieb besiegte er den Drachen und befreite die Prinzessin aus ihrem eisernen Käfig. "Du bist frei!", rief er. Erleichtert lächelte sie und dankte ihrem mutigen Retter.`,
+			en: `The dragon roared loudly and breathed a huge cloud of fire across the castle courtyard. The brave boy ducked, jumped over the broken bricks and ran towards the beast with his sword raised.\n\nWith a mighty strike, he defeated the dragon and freed the princess from her iron cage. "You are free!" he shouted. She smiled with relief and thanked her brave rescuer.`,
+			fr: `Le dragon rugit et cracha un immense nuage de feu dans la cour du château. Le jeune garçon courageux esquiva les flammes, sauta par-dessus les briques brisées et courut vers le monstre, son épée levée.\n\nD'un puissant coup d'épée, il vainquit le dragon et libéra la princesse de sa cage de fer. « Tu es libre ! » cria-t-il. Elle sourit avec soulagement et remercia son courageux sauveur.`,
+			es: `El dragón rugió con fuerza y lanzó una enorme nube de fuego sobre el patio del castillo. El valiente muchacho esquivó las llamas, saltó sobre los ladrillos rotos y corrió hacia el monstruo con la espada en alto.\n\nCon un poderoso golpe de espada, derrotó al dragón y liberó a la princesa de su jaula de hierro. «¡Eres libre!», gritó. Ella sonrió aliviada y dio las gracias a su valiente salvador.`,
+			pt: `O dragão rugiu alto e lançou uma enorme nuvem de fogo sobre o pátio do castelo. O rapaz corajoso desviou-se das chamas, saltou sobre os tijolos partidos e correu em direção ao monstro com a espada erguida.\n\nCom um golpe poderoso, derrotou o dragão e libertou a princesa da sua jaula de ferro. «Estás livre!», gritou. Ela sorriu, aliviada, e agradeceu ao seu valente salvador.`,
+			sv: `Draken vrålade högt och sprutade ett enormt moln av eld över borggården. Den modige pojken duckade, hoppade över de trasiga tegelstenarna och sprang mot odjuret med svärdet höjt.\n\nMed ett kraftigt svärdshugg besegrade han draken och befriade prinsessan från hennes järnbur. "Du är fri!" ropade han. Hon log lättat och tackade sin modige räddare.`,
+			da: `Dragen brølede højt og spyede en enorm sky af ild ud over borggården. Den modige dreng dukkede sig, sprang over de ødelagte mursten og løb mod uhyret med sværdet hævet.\n\nMed et kraftigt sværdslag besejrede han dragen og befriede prinsessen fra hendes jernbur. "Du er fri!" råbte han. Hun smilede lettet og takkede sin modige redningsmand.`
+		};
+
+		const languageSelect = document.getElementById("language-select");
+		const fontSelect = document.getElementById("font-select");
+		const story = document.getElementById("story");
+
+		function updateStory() {
+			story.lang = languageSelect.value;
+			story.textContent = stories[languageSelect.value];
+			story.className = `sample story ${fontSelect.value}`;
+		}
+
+		languageSelect.addEventListener("change", updateStory);
+		fontSelect.addEventListener("change", updateStory);
+		updateStory();
+	</script>
+</body>
+</html>
