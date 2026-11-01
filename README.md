@@ -3,7 +3,7 @@
 Carl Font is a compact handcrafted pixel typeface made for pixel games and other projects where screen space is limited.
 I created this font for one of my projects and am sharing it in the hope that it will be useful. You can use it for commercial projects as well. See the [license section](#license) below.
 
-![chars](/home/philipp/Projekte/carlfontproject/misc/documentation/chars.png)
+![chars](misc/documentation/chars.png)
 
 Example showing an 8-pixel character height in Regular.
 
@@ -55,4 +55,4 @@ AI was used to help create the documentation and distribution scripts. Using AI 
 
 ## Complex example and character overview
 
-![preview](/home/philipp/Projekte/carlfontproject/misc/documentation/preview.png)
+![preview](misc/documentation/preview.png)
